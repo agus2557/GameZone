@@ -1,0 +1,347 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #121212;
+    color: #f5f5f5;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background-color: #1f1f1f;
+    position: relative;
+}
+
+header .logo {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #ff4757;
+}
+
+header nav ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+header nav ul li a {
+    color: #f5f5f5;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #ff4757;
+}
+
+/* Menú hamburguesa */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: #f5f5f5;
+}
+
+/* Hero general */
+.hero,
+.hero-novedades,
+.hero-destacados {
+    text-align: center;
+    padding: 80px 20px;
+    color: #fff;
+}
+
+.hero {
+    background: linear-gradient(rgba(255,71,87,0.4), rgba(30,144,255,0.4)),
+                url("./img.proyecto/ghostrunner-with-sword-1920-x-1080-gaming-wgb53zrmv8y94gjn.jpg") 
+                no-repeat center center/cover;
+}
+
+.hero-novedades,
+.hero-destacados {
+    background: linear-gradient(135deg, #ff4757, #1e90ff);
+}
+
+.hero h1,
+.hero-novedades h1,
+.hero-destacados h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.hero p,
+.hero-novedades p,
+.hero-destacados p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+/* Botón hero */
+.hero button,
+.hero .hero-btn,
+.noticia a {
+    display: inline-block;
+    padding: 10px 25px;
+    font-size: 1em;
+    background-color: #ff4757;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.hero button:hover,
+.hero .hero-btn:hover,
+.noticia a:hover {
+    background-color: #ff6b81;
+}
+
+/* Carrusel */
+.carrusel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.carrusel .juegos-grid {
+    display: flex;
+    gap: 20px;
+    overflow: hidden;
+    width: 100%;
+    scroll-behavior: smooth;
+}
+
+.juego {
+    background-color: #1f1f1f;
+    border-radius: 10px;
+    padding: 15px;
+    width: 200px;
+    text-align: center;
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.juego img {
+    border-radius: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    height: auto;
+}
+
+.juego:hover {
+    transform: scale(1.05);
+}
+
+.carrusel button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(30,30,30,0.8);
+    border: none;
+    color: #fff;
+    font-size: 2em;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.carrusel .prev { left: 10px; }
+.carrusel .next { right: 10px; }
+
+/* Noticias y artículos */
+.noticias-recientes,
+.juegos-destacados,
+.noticias {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.noticia,
+.juego {
+    background-color: #1f1f1f;
+    border-radius: 10px;
+    padding: 15px;
+    width: 250px;
+    text-align: center;
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.noticia img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.noticia:hover {
+    transform: scale(1.05);
+}
+
+.noticia a {
+    margin-top: 10px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #1f1f1f;
+    margin-top: 50px;
+    font-size: 0.9em;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #1f1f1f;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+    animation: fadeIn 0.3s;
+}
+
+.modal-content img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin: 15px 0;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+/* Responsive */
+@media(max-width:768px){
+    .hamburger { display: flex; }
+    nav ul { display: none; flex-direction: column; background-color: #1f1f1f; position: absolute; top: 60px; right: 0; width: 150px; padding: 10px; }
+    nav ul.active { display: flex; }
+
+    .noticias-recientes,
+    .juegos-destacados {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .noticia,
+    .juego {
+        width: 80%;
+    }
+}
+/* CONTACTO: Ajustes responsive */
+.formulario-contacto {
+    padding: 40px 20px;
+}
+
+.contact-wrapper {
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    flex-wrap: wrap; /* Permite que los bloques se apilen en móviles */
+}
+
+.formulario-contacto form {
+    flex: 1 1 300px; /* Crece hasta 1/2 del contenedor pero mínimo 300px */
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.formulario-contacto input,
+.formulario-contacto textarea {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    font-size: 1em;
+}
+
+.formulario-contacto button {
+    background-color: #ff4757;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.formulario-contacto button:hover {
+    background-color: #ff6b81;
+}
+
+.info-contacto {
+    flex: 1 1 250px;
+    max-width: 400px;
+    background-color: #1f1f1f;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.info-contacto h3 {
+    margin-bottom: 15px;
+}
+
+.info-contacto p {
+    margin-bottom: 10px;
+}
+
+/* Ajustes para móviles */
+@media (max-width: 768px) {
+    .contact-wrapper {
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+    }
+
+    .formulario-contacto form,
+    .info-contacto {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+

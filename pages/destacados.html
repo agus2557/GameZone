@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destacados - GameZone</title>
+    <link rel="stylesheet" href="../CUSTOM.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">GameZone</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="./destacados.html">Destacados</a></li>
+                <li><a href="./novedades.html">Novedades</a></li>
+                <li><a href="./contacto.html">Contacto</a></li>
+                <li><a href="./catalogo.html">Catálogo</a></li>
+                <li><a href="../index.html">Inicio</a></li>
+            </ul>
+            <div class="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero-destacados">
+        <h1>Juegos Destacados</h1>
+        <p>Los títulos más populares y aclamados por los jugadores.</p>
+    </section>
+
+    <!-- Juegos Destacados -->
+    <section class="juegos-destacados">
+        <div class="juego" data-titulo="Elden Ring" data-descripcion="Explora un vasto mundo abierto lleno de secretos y jefes épicos." data-imagen="../img.proyecto/elden-ring.jpg">
+            <img src="../img.proyecto/elden-ring.jpg" alt="Elden Ring">
+            <h3>Elden Ring</h3>
+        </div>
+        <div class="juego" data-titulo="God of War Ragnarok" data-descripcion="Una aventura épica de Kratos y Atreus en los reinos nórdicos." data-imagen="../img.proyecto/god-of-war-ragnarok.jpg">
+            <img src="../img.proyecto/god-of-war-ragnarok.jpg" alt="God of War Ragnarok">
+            <h3>God of War Ragnarok</h3>
+        </div>
+        <div class="juego" data-titulo="Horizon Forbidden West" data-descripcion="Explora un mundo postapocalíptico lleno de máquinas y maravillas naturales." data-imagen="../img.proyecto/horizon-forbidden-west.jpg">
+            <img src="../img.proyecto/horizon-forbidden-west.jpg" alt="Horizon Forbidden West">
+            <h3>Horizon Forbidden West</h3>
+        </div>
+        <div class="juego" data-titulo="Cyberpunk 2077" data-descripcion="Sumérgete en un mundo futurista lleno de acción y aventuras." data-imagen="../img.proyecto/cyberpunk-2077.jpg">
+            <img src="../img.proyecto/cyberpunk-2077.jpg" alt="Cyberpunk 2077">
+            <h3>Cyberpunk 2077</h3>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modal-titulo"></h2>
+            <img id="modal-img" src="" alt="">
+            <p id="modal-desc"></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Contactanos: contacto@gamezone.com | Síguenos en redes sociales</p>
+        <p>&copy; 2025 GameZone. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="../CUSTOM.js"></script>
+</body>
+</html>

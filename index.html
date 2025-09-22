@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameZone - Portal de Videojuegos</title>
+    <link rel="stylesheet" href="./CUSTOM.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">GameZone</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="./pages/destacados.html">Destacados</a></li>
+                <li><a href="./pages/novedades.html">Novedades</a></li>
+                <li><a href="./pages/contacto.html">Contacto</a></li>
+                <li><a href="./pages/catalogo.html">Catálogo</a></li>
+            </ul>
+            <div class="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <h1>¡Bienvenido a GameZone!</h1>
+        <p>Descubre los últimos lanzamientos y noticias del mundo gaming.</p>
+        <a href="./pages/catalogo.html" class="hero-btn">Explorar Juegos</a>
+    </section>
+
+    <!-- Juegos Destacados -->
+    <section id="destacados">
+        <h2>Juegos Destacados</h2>
+        <div class="carrusel">
+            <button class="prev">&#10094;</button>
+            <div class="juegos-grid">
+                <div class="juego" data-titulo="Cyber Punk 2077" data-descripcion="Aventura futurista con gráficos increíbles." data-imagen="img.proyecto/portada CB.webp">
+                    <img src="img.proyecto/portada CB.webp" alt="Cyber Punk 2077" width="175" height="200">
+                    <h3>Cyber Punk 2077</h3>
+                </div>
+                <div class="juego" data-titulo="Hogwarts Legacy" data-descripcion="Explora mundos mágicos llenos de sorpresas." data-imagen="img.proyecto/peque_Hogwarts-Legacy-Key-Art.webp">
+                    <img src="img.proyecto/peque_Hogwarts-Legacy-Key-Art.webp" alt="Hogwarts Legacy" width="175" height="200">
+                    <h3>Hogwarts Legacy</h3>
+                </div>
+                <div class="juego" data-titulo="Need for Speed Heat" data-descripcion="Compite en carreras alucinantes y supera a todos." data-imagen="img.proyecto/need-for-speed-heat-201982319255972_1.webp">
+                    <img src="img.proyecto/need-for-speed-heat-201982319255972_1.webp" alt="Need for Speed Heat" width="175" height="200">
+                    <h3>Need for Speed Heat</h3>
+                </div>
+            </div>
+            <button class="next">&#10095;</button>
+        </div>
+    </section>
+
+    <!-- Noticias -->
+    <section id="novedades">
+        <h2>Noticias Recientes</h2>
+        <ul class="noticias" id="noticias-list">
+            <!-- Noticias generadas por JS -->
+        </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto">
+        <p>Contactanos: contacto@gamezone.com | Síguenos en redes sociales</p>
+        <p>&copy; 2025 GameZone. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modal-titulo"></h2>
+            <img id="modal-img" src="" alt="">
+            <p id="modal-desc"></p>
+        </div>
+    </div>
+
+    <script src="./CUSTOM.js"></script>
+</body>
+</html>
