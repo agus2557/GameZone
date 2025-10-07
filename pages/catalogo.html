@@ -4,35 +4,64 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Catálogo de Juegos</title>
-  <link rel="stylesheet" href="./catalogo.css">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Tu CSS personalizado -->
+  <link rel="stylesheet" href="../CSS/CUSTOM.css">
 </head>
 <body>
-  <!-- 🔻 NAVBAR -->
-  <nav class="navbar">
-    <div class="logo">GameZone</div>
-   <ul class="nav-links">
-                <li><a href="./destacados.html">Destacados</a></li>
-                <li><a href="./novedades.html">Novedades</a></li>
-                <li><a href="./contacto/contacto.html">Contacto</a></li>
-                 <li><a href="./catalogo.html">Catalogo</a></li>
-                 <li><a href="../index.html">Inicio</a></li>
-            </ul>
-    <div class="hamburger">
-      <div></div>
-      <div></div>
-      <div></div>
+
+  <!-- 🔻 NAVBAR CON BOOTSTRAP -->
+  <nav class="navbar navbar-expand-lg" style="background-color:#1f1f1f;">
+    <div class="container">
+      <a class="navbar-brand text-danger fw-bold" href="#">GameZone</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link text-light" href="./destacados.html">Destacados</a></li>
+          <li class="nav-item"><a class="nav-link text-light" href="./novedades.html">Novedades</a></li>
+          <li class="nav-item"><a class="nav-link text-light" href="./contacto/contacto.html">Contacto</a></li>
+          <li class="nav-item"><a class="nav-link text-light" href="./catalogo.html">Catálogo</a></li>
+          <li class="nav-item"><a class="nav-link text-light" href="../index.html">Inicio</a></li>
+        </ul>
+      </div>
     </div>
   </nav>
 
   <!-- 🔻 HEADER DEL CATÁLOGO -->
-  <header class="header-catalogo">
-    <h1>Catálogo de Juegos</h1>
+  <header class="header-catalogo py-4 text-center">
+    <h1 class="text-danger">Catálogo de Juegos</h1>
     <input type="text" id="buscador" placeholder="Buscar juego...">
   </header>
 
   <!-- 🔻 CONTENIDO -->
-  <main id="contenedor-juegos"></main>
+  <main class="container my-4" id="contenedor-juegos">
+    <div class="row g-4">
 
-  <script src="./catalogo.js"></script>
+      <!-- Tarjeta de ejemplo -->
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="tarjeta">
+          <img src="../img.proyecto/ejemplo.jpg" alt="Juego 1">
+          <h2>Nombre del Juego</h2>
+          <p>Descripción breve del juego.</p>
+          <a href="#" class="boton">Ver Más</a>
+        </div>
+      </div>
+
+      <!-- Agregar más tarjetas dinámicamente con JS o manualmente -->
+      
+    </div>
+  </main>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Tu JS personalizado -->
+  <script src="../CUSTOM.js"></script>
 </body>
 </html>
