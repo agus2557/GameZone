@@ -13,6 +13,13 @@ body {
   color: #f5f5f5;
 }
 
+/* Evita overflow por medios */
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 /* =======================
    HEADER Y NAVBAR
    ======================= */
@@ -69,9 +76,10 @@ header nav ul li a:hover {
   color: #fff;
 }
 
+/* Nota: ruta corregida a img/proyecto (sin punto en el nombre) */
 .hero {
   background: linear-gradient(rgba(255,71,87,0.4), rgba(30,144,255,0.4)),
-              url("../img.proyecto/ghostrunner-with-sword-1920-x-1080-gaming-wgb53zrmv8y94gjn.jpg") no-repeat center center / cover;
+              url("../img/proyecto/ghostrunner-with-sword-1920-x-1080-gaming-wgb53zrmv8y94gjn.jpg") no-repeat center center / cover;
 }
 
 .hero-novedades, .hero-destacados {
@@ -238,8 +246,8 @@ header nav ul li a:hover {
   font-size: 1em;
 }
 
-/* Grid de tarjetas */
-main {
+/* Grid de tarjetas: uso específico para catálogo (evita usar main) */
+#contenedor-juegos {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
@@ -408,8 +416,8 @@ footer {
    ANIMACIONES
    ======================= */
 @keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity: 1;}
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 /* =======================
@@ -417,7 +425,7 @@ footer {
    ======================= */
 @media (max-width: 768px) {
   .hamburger { display: flex; }
-  nav ul { 
+  nav ul {
     display: none;
     flex-direction: column;
     background-color: #1f1f1f;
@@ -430,4 +438,5 @@ footer {
   nav ul.active { display: flex; }
 
   .noticias-recientes,
-  .juegos-destacados { flex-direction: column;
+  .juegos-destacados { flex-direction: column; }
+}

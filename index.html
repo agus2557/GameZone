@@ -1,84 +1,79 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GameZone - Portal de Videojuegos</title>
-    <link rel="stylesheet" href="./CSS/CUSTOM.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GameZone - Portal de Videojuegos</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Tu CSS compilado -->
+  <link rel="stylesheet" href="./css/custom.css">
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="logo">GameZone</div>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="./pages/destacados.html">Destacados</a></li>
-                <li><a href="./pages/novedades.html">Novedades</a></li>
-                <li><a href="./pages/contacto.html">Contacto</a></li>
-                <li><a href="./pages/catalogo.html">Catálogo</a></li>
-            </ul>
-            <div class="hamburger">
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-        </nav>
-    </header>
 
+  <!-- 🔻 NAVBAR -->
+  <nav class="navbar navbar-expand-lg" style="background-color:#1f1f1f;">
+    <div class="container">
+      <a class="navbar-brand text-danger fw-bold" href="./index.html">GameZone</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link text-light" href="./pages/destacados.html">Destacados</a></li>
+          <li class="nav-item"><a class="nav-link text-light" href="./pages/novedades.html">Novedades</a></li>
+          <li class="nav-item"><a class="nav-link text-light" href="./pages/contacto.html">Contacto</a></li>
+          <li class="nav-item"><a class="nav-link text-light" href="./pages/catalogo.html">Catálogo</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
     <!-- Hero -->
-    <section class="hero">
-        <h1>¡Bienvenido a GameZone!</h1>
-        <p>Descubre los últimos lanzamientos y noticias del mundo gaming.</p>
-        <a href="./pages/catalogo.html" class="hero-btn">Explorar Juegos</a>
+    <section class="hero text-center py-5">
+      <h1>¡Bienvenido a GameZone!</h1>
+      <p>Descubre los últimos lanzamientos y noticias del mundo gaming.</p>
+      <a href="./pages/catalogo.html" class="btn btn-danger mt-3">Explorar Juegos</a>
     </section>
 
     <!-- Juegos Destacados -->
-    <section id="destacados">
-        <h2>Juegos Destacados</h2>
-        <div class="carrusel">
-            <button class="prev">&#10094;</button>
-            <div class="juegos-grid">
-                <div class="juego" data-titulo="Cyber Punk 2077" data-descripcion="Aventura futurista con gráficos increíbles." data-imagen="img.proyecto/portada CB.webp">
-                    <img src="img.proyecto/portada CB.webp" alt="Cyber Punk 2077" width="175" height="200">
-                    <h3>Cyber Punk 2077</h3>
-                </div>
-                <div class="juego" data-titulo="Hogwarts Legacy" data-descripcion="Explora mundos mágicos llenos de sorpresas." data-imagen="img.proyecto/peque_Hogwarts-Legacy-Key-Art.webp">
-                    <img src="img.proyecto/peque_Hogwarts-Legacy-Key-Art.webp" alt="Hogwarts Legacy" width="175" height="200">
-                    <h3>Hogwarts Legacy</h3>
-                </div>
-                <div class="juego" data-titulo="Need for Speed Heat" data-descripcion="Compite en carreras alucinantes y supera a todos." data-imagen="img.proyecto/need-for-speed-heat-201982319255972_1.webp">
-                    <img src="img.proyecto/need-for-speed-heat-201982319255972_1.webp" alt="Need for Speed Heat" width="175" height="200">
-                    <h3>Need for Speed Heat</h3>
-                </div>
-            </div>
-            <button class="next">&#10095;</button>
+    <section id="destacados" class="container text-center my-5">
+      <h2>Juegos Destacados</h2>
+      <div class="d-flex justify-content-center flex-wrap gap-4 mt-4">
+        <div class="juego">
+          <img src="./imgproyecto/portada CB.webp" alt="Cyberpunk 2077" class="juego-img">
+          <h3>Cyberpunk 2077</h3>
         </div>
+        <div class="juego">
+          <img src="./imgproyecto/peque_Hogwarts-Legacy-Key-Art.webp" alt="Hogwarts Legacy" class="juego-img">
+          <h3>Hogwarts Legacy</h3>
+        </div>
+        <div class="juego">
+          <img src="./imgproyecto/need-for-speed-heat-201982319255972_1.webp" alt="Need for Speed Heat" class="juego-img">
+          <h3>Need for Speed Heat</h3>
+        </div>
+      </div>
     </section>
 
     <!-- Noticias -->
-    <section id="novedades">
-        <h2>Noticias Recientes</h2>
-        <ul class="noticias" id="noticias-list">
-            <!-- Noticias generadas por JS -->
-        </ul>
+    <section id="novedades" class="container text-center my-5">
+      <h2>Noticias Recientes</h2>
+      <h3>🕹️ ¡Power-up de descuentos! Los precios bajan, tus juegos aumentan.</h3>
+      <ul class="noticias" id="noticias-list"></ul>
     </section>
+  </main>
 
-    <!-- Footer -->
-    <footer id="contacto">
-        <p>Contactanos: contacto@gamezone.com | Síguenos en redes sociales</p>
-        <p>&copy; 2025 GameZone. Todos los derechos reservados.</p>
-    </footer>
+  <!-- Footer -->
+  <footer class="text-center py-3">
+    <p>Contactanos: contacto@gamezone.com | Síguenos en redes sociales</p>
+    <p>&copy; 2025 GameZone. Todos los derechos reservados.</p>
+  </footer>
 
-    <!-- Modal -->
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2 id="modal-titulo"></h2>
-            <img id="modal-img" src="" alt="">
-            <p id="modal-desc"></p>
-        </div>
-    </div>
-
-    <script src="./CUSTOM.js"></script>
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
