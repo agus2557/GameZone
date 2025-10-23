@@ -440,3 +440,27 @@ footer {
   .noticias-recientes,
   .juegos-destacados { flex-direction: column; }
 }
+/* Solución rápida: asegurar que header y menú estén siempre arriba */
+header, .navbar, .navbar-collapse, .navbar-toggler, .hamburger {
+  position: relative; /* o fixed si querés header fijo */
+  z-index: 3000 !important; /* suficientemente alto para sobresalir */
+}
+
+/* Si el menú desplegable necesita fondo (evita ver contenido debajo) */
+header .navbar-collapse, .navbar-collapse {
+  background-color: rgba(31,31,31,0.98);
+  position: relative;
+  z-index: 3050 !important;
+}
+
+/* Asegura que las tarjetas/cards no superen al header */
+.juego, .noticia, .tarjeta {
+  z-index: 1;
+  position: relative;
+}
+
+/* Si tu header es fixed, añade espacio superior al body */
+body.has-fixed-header, body {
+  /* sólo si pones header fixed: ajustá el valor según altura del header */
+  padding-top: 70px;
+}
