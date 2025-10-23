@@ -13,7 +13,6 @@ body {
   color: #f5f5f5;
 }
 
-/* Evita overflow por medios */
 img, video, iframe {
   max-width: 100%;
   height: auto;
@@ -23,48 +22,78 @@ img, video, iframe {
 /* =======================
    HEADER Y NAVBAR
    ======================= */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 50px;
+.navbar {
   background-color: #1f1f1f;
   position: relative;
+  z-index: 3000;
 }
 
-header .logo {
-  font-size: 1.8em;
-  font-weight: bold;
-  color: #ff4757;
+/* checkbox oculto que controla el menu */
+.nav-toggle {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 0;
+  height: 0;
 }
 
-header nav ul {
+/* hamburguesa */
+.hamburger {
+  display: none; /* solo en mobile */
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.hamburger .bar {
+  width: 25px;
+  height: 3px;
+  background-color: #f5f5f5;
+  border-radius: 2px;
+}
+
+/* nav desktop */
+.main-nav .nav-links {
   display: flex;
   gap: 20px;
   list-style: none;
 }
 
-header nav ul li a {
+.main-nav .nav-links li a {
   color: #f5f5f5;
   text-decoration: none;
   transition: color 0.3s;
 }
 
-header nav ul li a:hover {
+.main-nav .nav-links li a:hover {
   color: #ff4757;
 }
 
-.hamburger {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  gap: 5px;
-}
+/* mobile */
+@media (max-width: 768px) {
+  .hamburger { display: flex; }
 
-.hamburger div {
-  width: 25px;
-  height: 3px;
-  background-color: #f5f5f5;
+  .main-nav .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    width: 220px;
+    background-color: rgba(31,31,31,0.98);
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.45);
+    z-index: 3050;
+  }
+
+  /* Mostrar nav cuando checkbox está activo */
+  .nav-toggle:checked ~ .main-nav .nav-links {
+    display: flex;
+  }
+
+  .nav-links li { margin: 6px 0; }
+  .nav-links li a { padding: 8px 12px; display: block; }
 }
 
 /* =======================
@@ -76,19 +105,16 @@ header nav ul li a:hover {
   color: #fff;
 }
 
-/* Nota: ruta corregida a img/proyecto (sin punto en el nombre) */
 .hero {
   background: linear-gradient(rgba(255,71,87,0.4), rgba(30,144,255,0.4)),
-              url("../img/proyecto/ghostrunner-with-sword-1920-x-1080-gaming-wgb53zrmv8y94gjn.jpg") no-repeat center center / cover;
+              url("../imgproyecto/ghostrunner-with-sword-1920-x-1080-gaming-wgb53zrmv8y94gjn.jpg") no-repeat center center / cover;
 }
 
 .hero-novedades, .hero-destacados {
   background: linear-gradient(135deg, #ff4757, #1e90ff);
 }
 
-.hero-contacto {
-  background-color: #1f1f1f;
-}
+.hero-contacto { background-color: #1f1f1f; }
 
 .hero h1, .hero-novedades h1, .hero-destacados h1, .hero-contacto h1 {
   font-size: 2.5em;
@@ -100,7 +126,7 @@ header nav ul li a:hover {
   margin-bottom: 30px;
 }
 
-/* BOTONES HERO */
+/* botones hero */
 .hero button, .hero .hero-btn, .noticia a {
   display: inline-block;
   padding: 10px 25px;
@@ -119,65 +145,34 @@ header nav ul li a:hover {
 }
 
 /* =======================
-   CARRUSEL
+   JUEGOS / NOTICIAS / TARJETAS
    ======================= */
-.carrusel {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 20px 0;
-}
-
-.carrusel .juegos-grid {
-  display: flex;
-  gap: 20px;
-  overflow: hidden;
-  width: 100%;
-  scroll-behavior: smooth;
-}
-
-.juego {
+.juego, .noticia, .tarjeta {
   background-color: #1f1f1f;
   border-radius: 10px;
   padding: 15px;
-  width: 200px;
   text-align: center;
-  transition: transform 0.3s;
-  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.juego img {
-  border-radius: 10px;
-  margin-bottom: 10px;
+.juego:hover, .noticia:hover, .tarjeta:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0,0,0,0.7);
+}
+
+.juego img, .noticia img, .tarjeta img {
   width: 100%;
   height: auto;
+  border-radius: 10px;
+  margin-bottom: 10px;
 }
 
-.juego:hover {
-  transform: scale(1.05);
-}
+.tarjeta h2 { margin: 10px; font-size: 18px; }
+.tarjeta p { margin: 0 10px 10px; font-size: 14px; color: #bbbbbb; }
+.tarjeta .btn { border-radius: 0 0 10px 10px; }
 
-.carrusel button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(30,30,30,0.8);
-  border: none;
-  color: #fff;
-  font-size: 2em;
-  cursor: pointer;
-  padding: 10px;
-  border-radius: 50%;
-}
-
-.carrusel .prev { left: 10px; }
-.carrusel .next { right: 10px; }
-
-/* =======================
-   NOTICIAS Y ARTÍCULOS
-   ======================= */
-.noticias-recientes, .juegos-destacados, .noticias {
+/* grids */
+.noticias-recientes, .juegos-destacados, #contenedor-juegos {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
@@ -185,125 +180,8 @@ header nav ul li a:hover {
   padding: 20px;
 }
 
-.noticia {
-  background-color: #1f1f1f;
-  border-radius: 10px;
-  padding: 15px;
-  width: 250px;
-  text-align: center;
-  transition: transform 0.3s;
-  cursor: pointer;
-}
-
-.noticia img {
-  width: 100%;
-  border-radius: 10px;
-  margin-bottom: 10px;
-}
-
-.noticia:hover {
-  transform: scale(1.05);
-}
-
-.noticia a {
-  margin-top: 10px;
-  display: inline-block;
-  padding: 10px 25px;
-  font-size: 1em;
-  border: none;
-  border-radius: 5px;
-  color: #fff;
-  cursor: pointer;
-  text-decoration: none;
-  transition: background-color 0.3s;
-  background-color: #ff4757;
-}
-
-.noticia a:hover {
-  background-color: #ff6b81;
-}
-
 /* =======================
-   CATALOGO
-   ======================= */
-.header-catalogo {
-  background-color: #1f1f1f;
-  padding: 20px;
-  text-align: center;
-}
-
-.header-catalogo h1 {
-  color: #ff4757;
-  margin-bottom: 10px;
-}
-
-#buscador {
-  margin-top: 10px;
-  padding: 10px;
-  width: 250px;
-  border: none;
-  border-radius: 5px;
-  font-size: 1em;
-}
-
-/* Grid de tarjetas: uso específico para catálogo (evita usar main) */
-#contenedor-juegos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  padding: 20px;
-}
-
-/* Tarjetas */
-.tarjeta {
-  background-color: #1f1f1f;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.tarjeta:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 15px rgba(0,0,0,0.7);
-}
-
-.tarjeta img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-}
-
-.tarjeta h2 {
-  margin: 10px;
-  font-size: 18px;
-}
-
-.tarjeta p {
-  margin: 0 10px 10px;
-  font-size: 14px;
-  color: #bbbbbb;
-}
-
-/* Botón de la tarjeta */
-.tarjeta .boton {
-  display: block;
-  text-align: center;
-  padding: 10px;
-  background-color: #ff4757;
-  color: #f5f5f5;
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 0 0 10px 10px;
-  transition: background-color 0.3s ease;
-}
-
-.tarjeta .boton:hover {
-  background-color: #ff0000;
-}
-
-/* =======================
-   FORMULARIO DE CONTACTO
+   FORMULARIO CONTACTO
    ======================= */
 .formulario-contacto {
   padding: 40px 20px;
@@ -324,8 +202,7 @@ header nav ul li a:hover {
   gap: 15px;
 }
 
-.formulario-contacto input,
-.formulario-contacto textarea {
+.formulario-contacto input, .formulario-contacto textarea {
   padding: 10px;
   border-radius: 5px;
   border: none;
@@ -355,51 +232,8 @@ header nav ul li a:hover {
   border-radius: 10px;
 }
 
-.info-contacto h3 {
-  margin-bottom: 15px;
-}
-
-.info-contacto p {
-  margin-bottom: 10px;
-}
-
-/* =======================
-   MODAL
-   ======================= */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 100;
-  left: 0; top: 0;
-  width: 100%; height: 100%;
-  background-color: rgba(0,0,0,0.8);
-  justify-content: center;
-  align-items: center;
-}
-
-.modal-content {
-  background-color: #1f1f1f;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-  max-width: 500px;
-  width: 90%;
-  animation: fadeIn 0.3s;
-}
-
-.modal-content img {
-  max-width: 100%;
-  border-radius: 10px;
-  margin: 15px 0;
-}
-
-.close {
-  position: absolute;
-  top: 10px;
-  right: 20px;
-  font-size: 2em;
-  cursor: pointer;
-}
+.info-contacto h3 { margin-bottom: 15px; }
+.info-contacto p { margin-bottom: 10px; }
 
 /* =======================
    FOOTER
@@ -413,54 +247,8 @@ footer {
 }
 
 /* =======================
-   ANIMACIONES
-   ======================= */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-/* =======================
    RESPONSIVE
    ======================= */
 @media (max-width: 768px) {
-  .hamburger { display: flex; }
-  nav ul {
-    display: none;
-    flex-direction: column;
-    background-color: #1f1f1f;
-    position: absolute;
-    top: 60px;
-    right: 0;
-    width: 150px;
-    padding: 10px;
-  }
-  nav ul.active { display: flex; }
-
-  .noticias-recientes,
-  .juegos-destacados { flex-direction: column; }
-}
-/* Solución rápida: asegurar que header y menú estén siempre arriba */
-header, .navbar, .navbar-collapse, .navbar-toggler, .hamburger {
-  position: relative; /* o fixed si querés header fijo */
-  z-index: 3000 !important; /* suficientemente alto para sobresalir */
-}
-
-/* Si el menú desplegable necesita fondo (evita ver contenido debajo) */
-header .navbar-collapse, .navbar-collapse {
-  background-color: rgba(31,31,31,0.98);
-  position: relative;
-  z-index: 3050 !important;
-}
-
-/* Asegura que las tarjetas/cards no superen al header */
-.juego, .noticia, .tarjeta {
-  z-index: 1;
-  position: relative;
-}
-
-/* Si tu header es fixed, añade espacio superior al body */
-body.has-fixed-header, body {
-  /* sólo si pones header fixed: ajustá el valor según altura del header */
-  padding-top: 70px;
+  .noticias-recientes, .juegos-destacados { flex-direction: column; }
 }

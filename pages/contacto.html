@@ -10,25 +10,29 @@
 </head>
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg" style="background-color:#1f1f1f;">
-    <div class="container">
-      <a class="navbar-brand text-danger fw-bold" href="../index.html">GameZone</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link text-light" href="./destacados.html">Destacados</a></li>
-          <li class="nav-item"><a class="nav-link text-light" href="./novedades.html">Novedades</a></li>
-          <li class="nav-item"><a class="nav-link text-light" href="./contacto.html">Contacto</a></li>
-          <li class="nav-item"><a class="nav-link text-light" href="./catalogo.html">Catálogo</a></li>
-          <li class="nav-item"><a class="nav-link text-light" href="../index.html">Inicio</a></li>
-        </ul>
-      </div>
+ <nav class="navbar">
+  <div class="container">
+    <a class="navbar-brand text-danger fw-bold" href="./index.html">GameZone</a>
+
+    <!-- Checkbox para menu -->
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+    <label for="nav-toggle" class="hamburger">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </label>
+
+    <div class="main-nav">
+      <ul class="nav-links ms-auto">
+        <li><a href="./destacados.html">Destacados</a></li>
+        <li><a href="./novedades.html">Novedades</a></li>
+        <li><a href="./contacto.html">Contacto</a></li>
+        <li><a href="./catalogo.html">Catálogo</a></li>
+        <li><a href="../index.html">Inicio</a></li>
+      </ul>
     </div>
-  </nav>
+  </div>
+</nav>
 
   <main class="container my-5">
     <header class="text-center mb-4">
